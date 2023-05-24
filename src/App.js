@@ -10,7 +10,7 @@ import PageNotFound from './components/PageNotFound';
 
 function App() {
   return (
-    <div className='bg-gray-100'>
+    <div>
       <BrowserRouter>
         <NavBar />
         <Routes>
