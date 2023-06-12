@@ -470,7 +470,7 @@ function Favourites() {
         {/* <input type="number" value={1} className='border-2 py-1 px-2 text-center focus:outline-none focus:ring-2 focus:ring-blue-300 focus:border-transparent'/> */}
       </div>
       {/* Data Table */}
-      <div className="overflow-hidden rounded-lg border border-gray-200 shadow-md m-5">
+      <div className="overflow-hidden rounded-lg border border-gray-200 shadow-md m-5 overflow-x-auto">
   <table className="w-full border-collapse bg-white text-left text-sm text-gray-500">
     <thead className="bg-gray-50">
       <tr>
