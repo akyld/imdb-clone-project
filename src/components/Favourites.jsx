@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Pagination from './Pagination'
 
 function Favourites() {
+  let [genres,setGenres] = useState([]);
   let movies = [{
     "adult": false,
     "backdrop_path": "/2e7fc8eNwLXZ5Uvehvl3xj8wVyv.jpg",
@@ -446,17 +447,29 @@ function Favourites() {
     10752: 'War',
     37: 'Western'
   }
+ useEffect(() => {
+  let temp = movies.map((movie) => genreids[movie.genre_ids[0]] || genreids[movie.genre_ids[1]])
+  temp = new Set(temp)
+  setGenres(["All Genres",...temp]);
+ },[])
+  
   return (
     <>
-      <div className='mt-4 flex space-x-2 justify-center'>
-        <button className='p-1 px-2 bg-blue-300 rounded-lg text-lg font-bold text-white'>All Genres</button>
-        <button className='p-1 px-2 bg-gray-300 rounded-lg text-lg font-bold text-white hover:bg-blue-300'>All Genres</button>
+      {/* Genres */}
+      <div className='mt-4 flex space-x-2 justify-center flex-wrap'> 
+        {genres.map((genre) => {
+          return(
+            <button className='p-1 px-2 bg-gray-300 rounded-lg text-lg font-bold text-white hover:bg-blue-300 my-2'>{genre}</button>
+          )
+        })}
+        
       </div>
-      
+      {/* Search Bar */}
       <div className='mt-4 flex justify-center space-x-2'>
         <input type="text" placeholder='Search' className='border-2 py-1 px-2 placeholder:text-center focus:outline-none focus:ring-2 focus:ring-blue-300 focus:border-transparent' />
         {/* <input type="number" value={1} className='border-2 py-1 px-2 text-center focus:outline-none focus:ring-2 focus:ring-blue-300 focus:border-transparent'/> */}
       </div>
+      {/* Data Table */}
       <div className="overflow-hidden rounded-lg border border-gray-200 shadow-md m-5">
   <table className="w-full border-collapse bg-white text-left text-sm text-gray-500">
     <thead className="bg-gray-50">
@@ -491,7 +504,7 @@ function Favourites() {
             <div className="font-medium text-gray-700">{movie.title || movie.name}</div>
         </th>
         <td className="px-6 py-4 pl-12 text-lg font-bold">
-         {movie.vote_average.toFixed(2)}
+         {movie.vote_average.toFixed(1)}
         </td>
         <td className="px-6 py-4 pl-12 text-lg font-bold">{movie.popularity.toFixed(2)}</td>
         <td className="px-6 py-4">
@@ -514,7 +527,7 @@ function Favourites() {
       })}
     </tbody>
   </table>
-      </div> {/* Data Table */}
+      </div> 
       <Pagination />
     </>
   )
