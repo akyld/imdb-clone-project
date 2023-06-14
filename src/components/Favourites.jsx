@@ -391,6 +391,7 @@ function Favourites() {
   const [searchItem, setSearchItem] = useState("");
   const [curGenre, setCurGenre] = useState("All Genres");
   const [curRatingOrder, setCurRatingOrder] = useState(0);
+  const [curPopularityOrder, setCurPopularityOrder] = useState(0);
 
   const deleteMovie = (id) => {
     const restOfTheMovies = movies.filter((movie) => {
@@ -433,7 +434,32 @@ function Favourites() {
           );
         });
 
-  /* SORTING */
+  /* SORTING --> RATING*/
+  if (curRatingOrder != 0) {
+    if (curRatingOrder == 1) {
+      filteredMovies = filteredMovies.sort((movieA, movieB) => {
+        return movieA.vote_average - movieB.vote_average;
+      });
+    }
+    if (curRatingOrder == -1) {
+      filteredMovies = filteredMovies.sort((movieA, movieB) => {
+        return movieB.vote_average - movieA.vote_average;
+      });
+    }
+  }
+
+  /* SORTING --> POPULARITY */
+  if (curPopularityOrder != 0) {
+    if (curPopularityOrder == 1) {
+      filteredMovies = filteredMovies.sort((movieA, movieB) => {
+        return movieA.popularity - movieB.popularity;
+      });
+    } else if (curPopularityOrder == -1) {
+      filteredMovies = filteredMovies.sort((movieA, movieB) => {
+        return movieB.popularity - movieA.popularity;
+      });
+    }
+  }
 
   return (
     <>
@@ -496,12 +522,20 @@ function Favourites() {
               <th scope="col" className="px-4 py-4 font-medium text-gray-900">
                 <div className="flex space-x-1">
                   <img
-                    className="cursor-pointer"
+                    className="cursor-pointer h-5"
+                    onClick={() => {
+                      setCurRatingOrder(1);
+                      console.log("clicked");
+                    }}
                     src="https://img.icons8.com/external-those-icons-lineal-those-icons/24/000000/external-up-arrows-those-icons-lineal-those-icons-3.png"
                   />
                   <div>Rating</div>
                   <img
-                    className="cursor-pointer"
+                    className="cursor-pointer h-5"
+                    onClick={() => {
+                      setCurRatingOrder(-1);
+                      console.log("clicked");
+                    }}
                     src="https://img.icons8.com/external-those-icons-lineal-those-icons/24/000000/external-down-arrows-those-icons-lineal-those-icons-4.png"
                   />
                 </div>
@@ -509,25 +543,27 @@ function Favourites() {
               <th scope="col" className="px-6 py-4 font-medium text-gray-900">
                 <div className="flex space-x-1">
                   <img
-                    className="cursor-pointer"
+                    className="cursor-pointer h-5"
+                    onClick={() => setCurPopularityOrder(1)}
                     src="https://img.icons8.com/external-those-icons-lineal-those-icons/24/000000/external-up-arrows-those-icons-lineal-those-icons-3.png"
                   />
                   <div>Popularity</div>
                   <img
-                    className="cursor-pointer"
+                    className="cursor-pointer h-5"
+                    onClick={() => setCurPopularityOrder(-1)}
                     src="https://img.icons8.com/external-those-icons-lineal-those-icons/24/000000/external-down-arrows-those-icons-lineal-those-icons-4.png"
                   />
                 </div>
               </th>
               <th
                 scope="col"
-                className="px-6 py-4 font-medium text-gray-900 text-center"
+                className="px-6 py-4 font-medium text-gray-900 text-center hover:underline"
               >
                 Genre
               </th>
               <th
                 scope="col"
-                className="px-6 py-4 font-medium text-gray-900 text-center"
+                className="px-6 py-4 font-medium text-gray-900 text-center hover:underline"
               >
                 Remove
               </th>
@@ -560,7 +596,7 @@ function Favourites() {
                   </td>
                   <td className="px-6 py-4">
                     <div className="flex justify-center">
-                      <span className="inline-flex items-center gap-1 rounded-full bg-green-50 px-2 py-1 text-xs font-semibold text-green-600">
+                      <span className="inline-flex items-center gap-1 rounded-full bg-green-50 px-2 py-1 text-xs font-semibold text-green-600 min-w-[47px]">
                         {genreids[movie.genre_ids[0]] ||
                           genreids[movie.genre_ids[1]]}
                       </span>
