@@ -548,7 +548,7 @@ function Favourites() {
                     />
                   </td>
                   <td className="px-6 py-4 pl-12 text-lg font-bold">
-                    <div className="font-medium text-gray-700 text-center min-w-[120px]">
+                    <div className="font-medium text-gray-700 text-center min-w-[140px]">
                       {movie.title || movie.name}
                     </div>
                   </td>
