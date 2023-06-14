@@ -12,7 +12,7 @@ let sampleMovies = [
     overview:
       "Over many missions and against impossible odds, Dom Toretto and his family have outsmarted, out-nerved and outdriven every foe in their path. Now, they confront the most lethal opponent they've ever faced: A terrifying threat emerging from the shadows of the past who's fueled by blood revenge, and who is determined to shatter this family and destroy everything—and everyone—that Dom loves, forever.",
     poster_path: "/fiVW06jE7z9YnO4trhaMEdclSiC.jpg",
-    media_type: "movie",
+    media_curRatingOrder: "movie",
     genre_ids: [28, 80, 53],
     popularity: 5973.909,
     release_date: "2023-05-17",
@@ -30,7 +30,7 @@ let sampleMovies = [
     overview:
       "When a new threat capable of destroying the entire planet emerges, Optimus Prime and the Autobots must team up with a powerful faction known as the Maximals. With the fate of humanity hanging in the balance, humans Noah and Elena will do whatever it takes to help the Transformers as they engage in the ultimate battle to save Earth.",
     poster_path: "/k5mQ2G1jS47fuxCjmkzFDeaNYvj.jpg",
-    media_type: "movie",
+    media_curRatingOrder: "movie",
     genre_ids: [28, 12, 878],
     popularity: 3119.896,
     release_date: "2023-06-06",
@@ -48,7 +48,7 @@ let sampleMovies = [
     overview:
       "After reuniting with Gwen Stacy, Brooklyn’s full-time, friendly neighborhood Spider-Man is catapulted across the Multiverse, where he encounters the Spider Society, a team of Spider-People charged with protecting the Multiverse’s very existence. But when the heroes clash on how to handle a new threat, Miles finds himself pitted against the other Spiders and must set out on his own to save those he loves most.",
     poster_path: "/8Vt6mWEReuy4Of61Lnj5Xj704m8.jpg",
-    media_type: "movie",
+    media_curRatingOrder: "movie",
     genre_ids: [28, 12, 16, 878],
     popularity: 3309.344,
     release_date: "2023-05-31",
@@ -66,7 +66,7 @@ let sampleMovies = [
     overview:
       "Noah must leave her city, boyfriend, and friends to move into William Leister's mansion, the flashy and wealthy husband of her mother Rafaela. As a proud and independent 17 year old, Noah resists living in a mansion surrounded by luxury. However, it is there where she meets Nick, her new stepbrother, and the clash of their strong personalities becomes evident from the very beginning.",
     poster_path: "/w46Vw536HwNnEzOa7J24YH9DPRS.jpg",
-    media_type: "movie",
+    media_curRatingOrder: "movie",
     genre_ids: [10749, 18],
     popularity: 836.193,
     release_date: "2023-06-08",
@@ -84,7 +84,7 @@ let sampleMovies = [
     overview:
       "With the price on his head ever increasing, John Wick uncovers a path to defeating The High Table. But before he can earn his freedom, Wick must face off against a new enemy with powerful alliances across the globe and forces that turn old friends into foes.",
     poster_path: "/vZloFAK7NmvMGKE7VkF5UHaz0I.jpg",
-    media_type: "movie",
+    media_curRatingOrder: "movie",
     genre_ids: [28, 53, 80],
     popularity: 4935.527,
     release_date: "2023-03-22",
@@ -102,7 +102,7 @@ let sampleMovies = [
     overview:
       "The inspiring true story of Richard Montañez, the Frito Lay janitor who channeled his Mexican American heritage and upbringing to turn the iconic Flamin’ Hot Cheetos into a snack that disrupted the food industry and became a global pop culture phenomenon.",
     poster_path: "/a7KyFMPXj0iY4EoLq1PIGU1WJPw.jpg",
-    media_type: "movie",
+    media_curRatingOrder: "movie",
     genre_ids: [35, 18],
     popularity: 46.634,
     release_date: "2023-03-11",
@@ -120,7 +120,7 @@ let sampleMovies = [
     overview:
       "Two young boxers band together with a benevolent moneylender to take down a ruthless loan shark who preys on the financially desperate.",
     poster_path: "/kxU1hhebWZGaz8gkMVi8zkZhzVt.jpg",
-    media_type: "tv",
+    media_curRatingOrder: "tv",
     genre_ids: [10759, 18, 80],
     popularity: 109.69,
     first_air_date: "2023-06-09",
@@ -138,7 +138,7 @@ let sampleMovies = [
     overview:
       "While working underground to fix a water main, Brooklyn plumbers—and brothers—Mario and Luigi are transported down a mysterious pipe and wander into a magical new world. But when the brothers are separated, Mario embarks on an epic quest to find Luigi.",
     poster_path: "/qNBAXBIQlnOThrVvA6mA2B5ggV6.jpg",
-    media_type: "movie",
+    media_curRatingOrder: "movie",
     genre_ids: [16, 10751, 12, 14, 35],
     popularity: 4219.179,
     release_date: "2023-04-05",
@@ -156,7 +156,7 @@ let sampleMovies = [
     overview:
       "Set in Manhattan during the summer of 1979. When a young man is arrested for a shocking crime—and an unlikely investigator must solve the mystery behind it.",
     poster_path: "/vRmopCFp0j1eJGbILLsYsYzxmL8.jpg",
-    media_type: "tv",
+    media_curRatingOrder: "tv",
     genre_ids: [18, 80, 9648],
     popularity: 130.781,
     first_air_date: "2023-06-08",
@@ -174,7 +174,7 @@ let sampleMovies = [
     overview:
       "Set more than a decade after the events of the first film, learn the story of the Sully family (Jake, Neytiri, and their kids), the trouble that follows them, the lengths they go to keep each other safe, the battles they fight to stay alive, and the tragedies they endure.",
     poster_path: "/t6HIqrRAclMCA60NsSmeqe9RmNV.jpg",
-    media_type: "movie",
+    media_curRatingOrder: "movie",
     genre_ids: [878, 12, 28],
     popularity: 1503.85,
     release_date: "2022-12-14",
@@ -192,7 +192,7 @@ let sampleMovies = [
     overview:
       "It is the Taisho Period in Japan. Tanjiro, a kindhearted boy who sells charcoal for a living, finds his family slaughtered by a demon. To make matters worse, his younger sister Nezuko, the sole survivor, has been transformed into a demon herself. Though devastated by this grim reality, Tanjiro resolves to become a “demon slayer” so that he can turn his sister back into a human, and kill the demon that massacred his family.",
     poster_path: "/xUfRZu2mi8jH6SzQEJGP6tjBuYj.jpg",
-    media_type: "tv",
+    media_curRatingOrder: "tv",
     genre_ids: [16, 10759, 10765],
     popularity: 248.831,
     first_air_date: "2019-04-06",
@@ -210,7 +210,7 @@ let sampleMovies = [
     overview:
       "A hijacked 767 will crash in just 97 minutes when its fuel runs out. Against the strong will of NSA Deputy Toyin, NSA Director Hawkins prepares to have the plane shot down before it does any catastrophic damage on the ground, leaving the fate of the innocent passengers in the hands of Tyler, one of the alleged hijackers on board who is an undercover Interpol agent - or is he?",
     poster_path: "/eYGyR8xF8emNs9AJAJSyLXu56kR.jpg",
-    media_type: "movie",
+    media_curRatingOrder: "movie",
     genre_ids: [53, 28],
     popularity: 80.83,
     release_date: "2023-06-09",
@@ -228,7 +228,7 @@ let sampleMovies = [
     overview:
       "When his attempt to save his family inadvertently alters the future, Barry Allen becomes trapped in a reality in which General Zod has returned and there are no Super Heroes to turn to. In order to save the world that he is in and return to the future that he knows, Barry's only hope is to race for his life. But will making the ultimate sacrifice be enough to reset the universe?",
     poster_path: "/67PmbAViFCW3obXxr5Utm9wArIP.jpg",
-    media_type: "movie",
+    media_curRatingOrder: "movie",
     genre_ids: [878, 28, 12],
     popularity: 409.626,
     release_date: "2023-06-05",
@@ -246,7 +246,7 @@ let sampleMovies = [
     overview:
       "The youngest of King Triton’s daughters, and the most defiant, Ariel longs to find out more about the world beyond the sea, and while visiting the surface, falls for the dashing Prince Eric. With mermaids forbidden to interact with humans, Ariel makes a deal with the evil sea witch, Ursula, which gives her a chance to experience life on land, but ultimately places her life – and her father’s crown – in jeopardy.",
     poster_path: "/ym1dxyOk4jFcSl4Q2zmRrA5BEEN.jpg",
-    media_type: "movie",
+    media_curRatingOrder: "movie",
     genre_ids: [12, 10751, 14, 10749],
     popularity: 1765.61,
     release_date: "2023-05-18",
@@ -264,7 +264,7 @@ let sampleMovies = [
     overview:
       "Three modern couples juggle relationships and demanding careers while navigating the unpredictable terrain of parenthood.",
     poster_path: "/blGdfZPiv4CXViqbfXNcWiplABz.jpg",
-    media_type: "movie",
+    media_curRatingOrder: "movie",
     genre_ids: [35, 18],
     popularity: 77.032,
     release_date: "2023-06-09",
@@ -282,7 +282,7 @@ let sampleMovies = [
     overview:
       "A charming thief and a band of unlikely adventurers undertake an epic heist to retrieve a lost relic, but things go dangerously awry when they run afoul of the wrong people.",
     poster_path: "/A7AoNT06aRAc4SV89Dwxj3EYAgC.jpg",
-    media_type: "movie",
+    media_curRatingOrder: "movie",
     genre_ids: [12, 14, 35],
     popularity: 446.549,
     release_date: "2023-03-23",
@@ -300,7 +300,7 @@ let sampleMovies = [
     overview:
       "Merve chose the bohemian life, but it didn't choose her back. Faced with eviction, she starts a new job and stumbles into a spicy setup with her boss.",
     poster_path: "/8fk4l8PvGGjHYCUpA4gGbyIoS3S.jpg",
-    media_type: "movie",
+    media_curRatingOrder: "movie",
     genre_ids: [35, 10749],
     popularity: 69.678,
     release_date: "2023-06-09",
@@ -318,7 +318,7 @@ let sampleMovies = [
     overview:
       "After a traumatic year, all an Indian-American teen wants is to go from pariah to popular -- but friends, family and feeling won't make it easy on her.",
     poster_path: "/hd5fnBixab6IzfUwjC5wfdbX3eM.jpg",
-    media_type: "tv",
+    media_curRatingOrder: "tv",
     genre_ids: [35, 18],
     popularity: 473.43,
     first_air_date: "2020-04-27",
@@ -336,7 +336,7 @@ let sampleMovies = [
     overview:
       "In a ruined and toxic future, a community exists in a giant underground silo that plunges hundreds of stories deep. There, men and women live in a society full of regulations they believe are meant to protect them.",
     poster_path: "/zBx1X06G1OlndbXTCZI13FECNz2.jpg",
-    media_type: "tv",
+    media_curRatingOrder: "tv",
     genre_ids: [10765, 18],
     popularity: 825.927,
     first_air_date: "2023-05-04",
@@ -354,7 +354,7 @@ let sampleMovies = [
     overview:
       "After a nervous breakdown derailed Jocelyn's last tour, she’s determined to claim her rightful status as the greatest and sexiest pop star in America. Her passions are reignited by Tedros, a nightclub impresario with a sordid past. Will her romantic awakening take her to glorious new heights or the deepest and darkest depths of her soul?",
     poster_path: "/gO9k7t9jSdkkWVG0deMZDpELZGw.jpg",
-    media_type: "tv",
+    media_curRatingOrder: "tv",
     genre_ids: [18],
     popularity: 437.714,
     first_air_date: "2023-06-04",
@@ -390,8 +390,8 @@ function Favourites() {
   const [movies, setMovies] = useState(sampleMovies);
   const [searchItem, setSearchItem] = useState("");
   const [curGenre, setCurGenre] = useState("All Genres");
-  const [curRatingOrder, setCurRatingOrder] = useState(0);
-  const [curPopularityOrder, setCurPopularityOrder] = useState(0);
+  const [curPopularityOrder, setCurPopularityOrder] = useState("");
+  const [curRatingOrder, setCurRatingOrder] = useState("");
 
   const deleteMovie = (id) => {
     const restOfTheMovies = movies.filter((movie) => {
@@ -435,7 +435,7 @@ function Favourites() {
         });
 
   /* SORTING --> RATING*/
-  if (curRatingOrder != 0) {
+/*   if (curRatingOrder != 0) {
     if (curRatingOrder == 1) {
       filteredMovies = filteredMovies.sort((movieA, movieB) => {
         return movieA.vote_average - movieB.vote_average;
@@ -445,6 +445,20 @@ function Favourites() {
       filteredMovies = filteredMovies.sort((movieA, movieB) => {
         return movieB.vote_average - movieA.vote_average;
       });
+    }
+  } */
+
+  let sortRating = (curRatingOrder) => {
+    debugger
+    if(curRatingOrder == "increment"){
+      filteredMovies.sort((movieA, movieB) => {
+        return movieA.vote_average - movieB.vote_average;
+      })
+    }
+    else if (curRatingOrder == "decrement") {
+      filteredMovies.sort((movieA, movieB) => {
+        return movieB.vote_average - movieA.vote_average;
+      })
     }
   }
 
@@ -488,7 +502,7 @@ function Favourites() {
       {/* Search Bar */}
       <div className="mt-4 flex justify-center space-x-2 mx-5">
         <input
-          type="text"
+          curRatingOrder="text"
           value={searchItem}
           onChange={(e) => {
             setSearchItem(e.target.value);
@@ -497,7 +511,7 @@ function Favourites() {
           className="border-2 py-1 px-2 placeholder:text-center focus:outline-none focus:ring-2 focus:ring-blue-300 focus:border-transparent text-center max-sm:w-1/2"
         />
         <input
-          type="number"
+          curRatingOrder="number"
           value={1}
           className="border-2 py-1 px-2 text-center focus:outline-none focus:ring-2 focus:ring-blue-300 focus:border-transparent max-sm:w-1/2"
         />
@@ -524,7 +538,7 @@ function Favourites() {
                   <img
                     className="cursor-pointer h-5"
                     onClick={() => {
-                      setCurRatingOrder(1);
+                      sortRating(setCurRatingOrder("increment"))
                       console.log("clicked");
                     }}
                     src="https://img.icons8.com/external-those-icons-lineal-those-icons/24/000000/external-up-arrows-those-icons-lineal-those-icons-3.png"
@@ -533,7 +547,7 @@ function Favourites() {
                   <img
                     className="cursor-pointer h-5"
                     onClick={() => {
-                      setCurRatingOrder(-1);
+                    
                       console.log("clicked");
                     }}
                     src="https://img.icons8.com/external-those-icons-lineal-those-icons/24/000000/external-down-arrows-those-icons-lineal-those-icons-4.png"
