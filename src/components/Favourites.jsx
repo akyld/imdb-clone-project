@@ -389,7 +389,8 @@ function Favourites() {
   const [genres, setGenres] = useState([]);
   const [movies, setMovies] = useState(sampleMovies);
   const [searchItem, setSearchItem] = useState("");
-  const [curGenre,setCurGenre] = useState();
+  const [curGenre, setCurGenre] = useState("All Genres");
+  const [curRatingOrder, setCurRatingOrder] = useState(0);
 
   const deleteMovie = (id) => {
     const restOfTheMovies = movies.filter((movie) => {
@@ -407,8 +408,8 @@ function Favourites() {
   }, []);
 
   const onCurGenre = (genre) => {
-    setCurGenre(genre)
-  }  
+    setCurGenre(genre);
+  };
 
   let searchedMovies =
     searchItem == ""
@@ -418,12 +419,21 @@ function Favourites() {
           let lowerCharSearch = searchItem.toLowerCase();
           return movieName.toLowerCase().includes(lowerCharSearch);
         });
-  
-        let filteredMovies =
-        curGenre == "All Genres" ? searchedMovies :
-          searchedMovies.filter((searchedMovie) => {
-            return genreids[searchedMovie.genre_ids[0] || searchedMovie.genre_ids[1]] == curGenre;
-          })
+
+  /* FILTERING */
+
+  let filteredMovies =
+    curGenre == "All Genres"
+      ? searchedMovies
+      : searchedMovies.filter((searchedMovie) => {
+          return (
+            genreids[
+              searchedMovie.genre_ids[0] || searchedMovie.genre_ids[1]
+            ] == curGenre
+          );
+        });
+
+  /* SORTING */
 
   return (
     <>
@@ -431,14 +441,26 @@ function Favourites() {
       <div className="mt-4 flex space-x-2 justify-center flex-wrap">
         {genres.map((genre) => {
           return (
-            <button onClick={() => {onCurGenre(genre)}} className={`p-1 px-2 bg-gray-300 rounded-lg text-lg font-bold text-white hover:bg-blue-300 my-2 mx-2 ${genre == curGenre ?"bg-blue-300":""}`}>
+            <button
+              className={
+                genre == curGenre
+                  ? `py-1 px-2 rounded-lg
+               font-bold text-lg text-white bg-blue-300 mt-4`
+                  : `py-1 px-2 mt-4 bg-gray-300 rounded-lg
+               font-bold text-lg text-white hover:bg-blue-300`
+              }
+              onClick={() => {
+                onCurGenre(genre);
+              }}
+            >
+              {" "}
               {genre}
             </button>
           );
         })}
       </div>
       {/* Search Bar */}
-      <div className="mt-4 flex justify-center space-x-2">
+      <div className="mt-4 flex justify-center space-x-2 mx-5">
         <input
           type="text"
           value={searchItem}
@@ -446,12 +468,12 @@ function Favourites() {
             setSearchItem(e.target.value);
           }}
           placeholder="Search"
-          className="border-2 py-1 px-2 placeholder:text-center focus:outline-none focus:ring-2 focus:ring-blue-300 focus:border-transparent"
+          className="border-2 py-1 px-2 placeholder:text-center focus:outline-none focus:ring-2 focus:ring-blue-300 focus:border-transparent text-center max-sm:w-1/2"
         />
         <input
           type="number"
           value={1}
-          className="border-2 py-1 px-2 text-center focus:outline-none focus:ring-2 focus:ring-blue-300 focus:border-transparent"
+          className="border-2 py-1 px-2 text-center focus:outline-none focus:ring-2 focus:ring-blue-300 focus:border-transparent max-sm:w-1/2"
         />
       </div>
       {/* Data Table */}
@@ -459,10 +481,19 @@ function Favourites() {
         <table className="w-full border-collapse bg-white text-left text-sm text-gray-500">
           <thead className="bg-gray-50">
             <tr>
-              <th scope="col" className="px-6 py-4 font-medium text-gray-900">
+              <th
+                scope="col"
+                className="px-4 py-4 font-medium text-gray-900 text-center"
+              >
+                Poster
+              </th>
+              <th
+                scope="col"
+                className="px-4 py-4 font-medium text-gray-900 text-center"
+              >
                 Name
               </th>
-              <th scope="col" className="px-6 py-4 font-medium text-gray-900">
+              <th scope="col" className="px-4 py-4 font-medium text-gray-900">
                 <div className="flex space-x-1">
                   <img
                     className="cursor-pointer"
@@ -507,15 +538,20 @@ function Favourites() {
               /* console.log(movie); */
               return (
                 <tr className="hover:bg-gray-50" key={movie.id}>
-                  <th className="flex items-center px-6 py-4 font-normal text-gray-900 space-x-2">
+                  <td
+                    className="flex items-center px-6 py-4 font-normal text-gray-900 space-x-2 min-w-[9rem]" /* style={{minWidth: "8rem"}} */
+                  >
                     <img
-                      className="h-[7rem] w-[5rem] object-fit"
+                      className="h-[10rem] w-auto object-fit"
                       src={`https://www.themoviedb.org/t/p/original/t/p/original/${movie.poster_path}`}
+                      /* style={{width:"100%", height:"100%"}} */
                     />
-                    <div className="font-medium text-gray-700 justify-center">
+                  </td>
+                  <td className="px-6 py-4 pl-12 text-lg font-bold">
+                    <div className="font-medium text-gray-700 text-center min-w-[120px]">
                       {movie.title || movie.name}
                     </div>
-                  </th>
+                  </td>
                   <td className="px-6 py-4 pl-12 text-lg font-bold">
                     {movie.vote_average.toFixed(1)}
                   </td>
