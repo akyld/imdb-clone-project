@@ -12,7 +12,6 @@ function Movies() {
   let [favourites,setFavourites] = useState([]);
 
   useEffect(() => {
-    console.log("useEffect worked");
     const options = {
       method: 'GET',
       url: 'https://api.themoviedb.org/3/trending/all/day?api_key=63d268cf283cf0b896a9e05a81272e6c&page='+pageNum,
@@ -26,7 +25,6 @@ function Movies() {
     axios
       .request(options)
       .then(function (response) {
-        console.log(response.data.results);
         setMovies(response.data.results);
       })
       .catch(function (error) {

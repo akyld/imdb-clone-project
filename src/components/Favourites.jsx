@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Pagination from "./Pagination";
+import axios from "axios";
+
 
 let sampleMovies = [
   {
@@ -390,16 +392,10 @@ function Favourites() {
   const [movies, setMovies] = useState(sampleMovies);
   const [searchItem, setSearchItem] = useState("");
   const [curGenre, setCurGenre] = useState("All Genres");
-  const [curPopularityOrder, setCurPopularityOrder] = useState("");
-  const [curRatingOrder, setCurRatingOrder] = useState("");
-
-  const deleteMovie = (id) => {
-    const restOfTheMovies = movies.filter((movie) => {
-      return id != movie.id;
-    });
-    setMovies(restOfTheMovies);
-  };
-
+  const [noOfElement, setNoOfElement] = useState(2);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [pageNum,setPage] = useState(1);
+  
   useEffect(() => {
     let temp = movies.map(
       (movie) => genreids[movie.genre_ids[0]] || genreids[movie.genre_ids[1]]
@@ -411,6 +407,14 @@ function Favourites() {
   const onCurGenre = (genre) => {
     setCurGenre(genre);
   };
+
+  const deleteMovie = (id) => {
+    const restOfTheMovies = movies.filter((movie) => {
+      return id != movie.id;
+    });
+    setMovies(restOfTheMovies);
+  };
+
 
   let searchedMovies =
     searchItem == ""
@@ -435,45 +439,48 @@ function Favourites() {
         });
 
   /* SORTING --> RATING*/
-/*   if (curRatingOrder != 0) {
-    if (curRatingOrder == 1) {
-      filteredMovies = filteredMovies.sort((movieA, movieB) => {
-        return movieA.vote_average - movieB.vote_average;
-      });
-    }
-    if (curRatingOrder == -1) {
-      filteredMovies = filteredMovies.sort((movieA, movieB) => {
-        return movieB.vote_average - movieA.vote_average;
-      });
-    }
-  } */
 
-  let sortRating = (curRatingOrder) => {
-    debugger
-    if(curRatingOrder == "increment"){
-      filteredMovies.sort((movieA, movieB) => {
-        return movieA.vote_average - movieB.vote_average;
-      })
+  const sortMoviesByRating = (type) => {
+    let filteredMovies = [...movies];
+
+    if (type === "ascending") {
+      filteredMovies.sort((a, b) => a.vote_average - b.vote_average);
+    } else if (type === "descending") {
+      filteredMovies.sort((a, b) => b.vote_average - a.vote_average);
     }
-    else if (curRatingOrder == "decrement") {
-      filteredMovies.sort((movieA, movieB) => {
-        return movieB.vote_average - movieA.vote_average;
-      })
-    }
-  }
+
+    setMovies(filteredMovies);
+  };
+
 
   /* SORTING --> POPULARITY */
-  if (curPopularityOrder != 0) {
-    if (curPopularityOrder == 1) {
-      filteredMovies = filteredMovies.sort((movieA, movieB) => {
-        return movieA.popularity - movieB.popularity;
-      });
-    } else if (curPopularityOrder == -1) {
-      filteredMovies = filteredMovies.sort((movieA, movieB) => {
-        return movieB.popularity - movieA.popularity;
-      });
+
+  const sortMoviesByPopularity = (type) => {
+    let filteredMovies = [...movies];
+
+    if (type === "ascending") {
+      filteredMovies.sort((a, b) => a.popularity - b.popularity);
+    } else if (type === "descending") {
+      filteredMovies.sort((a, b) => b.popularity - a.popularity);
+    }
+
+    setMovies(filteredMovies);
+  };
+
+  /* PAGINATION */
+
+  const onPrev = () => {
+    if (pageNum > 1) {
+      setPage(pageNum - 1);
     }
   }
+
+  const onNext = () => {
+      setPage(pageNum + 1);
+  }
+
+
+  
 
   return (
     <>
@@ -508,12 +515,7 @@ function Favourites() {
             setSearchItem(e.target.value);
           }}
           placeholder="Search"
-          className="border-2 py-1 px-2 placeholder:text-center focus:outline-none focus:ring-2 focus:ring-blue-300 focus:border-transparent text-center max-sm:w-1/2"
-        />
-        <input
-          curRatingOrder="number"
-          value={1}
-          className="border-2 py-1 px-2 text-center focus:outline-none focus:ring-2 focus:ring-blue-300 focus:border-transparent max-sm:w-1/2"
+          className="border-2 py-1 px-8 placeholder:text-center focus:outline-none focus:ring-2 focus:ring-blue-300 focus:border-transparent text-center max-sm:w-60"
         />
       </div>
       {/* Data Table */}
@@ -537,19 +539,13 @@ function Favourites() {
                 <div className="flex space-x-1">
                   <img
                     className="cursor-pointer h-5"
-                    onClick={() => {
-                      sortRating(setCurRatingOrder("increment"))
-                      console.log("clicked");
-                    }}
+                    onClick={() => {sortMoviesByRating("ascending");}}
                     src="https://img.icons8.com/external-those-icons-lineal-those-icons/24/000000/external-up-arrows-those-icons-lineal-those-icons-3.png"
                   />
                   <div>Rating</div>
                   <img
                     className="cursor-pointer h-5"
-                    onClick={() => {
-                    
-                      console.log("clicked");
-                    }}
+                    onClick={() => sortMoviesByRating("descending")}
                     src="https://img.icons8.com/external-those-icons-lineal-those-icons/24/000000/external-down-arrows-those-icons-lineal-those-icons-4.png"
                   />
                 </div>
@@ -558,20 +554,20 @@ function Favourites() {
                 <div className="flex space-x-1">
                   <img
                     className="cursor-pointer h-5"
-                    onClick={() => setCurPopularityOrder(1)}
+                    onClick={() => sortMoviesByPopularity("ascending")}
                     src="https://img.icons8.com/external-those-icons-lineal-those-icons/24/000000/external-up-arrows-those-icons-lineal-those-icons-3.png"
                   />
                   <div>Popularity</div>
                   <img
                     className="cursor-pointer h-5"
-                    onClick={() => setCurPopularityOrder(-1)}
+                    onClick={() => sortMoviesByPopularity("descending")}
                     src="https://img.icons8.com/external-those-icons-lineal-those-icons/24/000000/external-down-arrows-those-icons-lineal-those-icons-4.png"
                   />
                 </div>
               </th>
               <th
                 scope="col"
-                className="px-6 py-4 font-medium text-gray-900 text-center hover:underline"
+                className="px-6 py-4 font-medium text-gray-900 text-center"
               >
                 Genre
               </th>
@@ -592,13 +588,13 @@ function Favourites() {
                     className="flex items-center px-6 py-4 font-normal text-gray-900 space-x-2 min-w-[9rem]" /* style={{minWidth: "8rem"}} */
                   >
                     <img
-                      className="h-[10rem] w-auto object-fit"
+                      className="h-[10rem] w-auto object-fit rounded-md shadow-2xl"
                       src={`https://www.themoviedb.org/t/p/original/t/p/original/${movie.poster_path}`}
                       /* style={{width:"100%", height:"100%"}} */
                     />
                   </td>
                   <td className="px-6 py-4 pl-12 text-lg font-bold">
-                    <div className="font-medium text-gray-700 text-center min-w-[140px]">
+                    <div className="font-medium text-gray-700 text-center min-w-[140px] hover:underline">
                       {movie.title || movie.name}
                     </div>
                   </td>
@@ -634,7 +630,7 @@ function Favourites() {
           </tbody>
         </table>
       </div>
-      <Pagination />
+      <Pagination pageNum={pageNum} onPrev={onPrev} onNext={onNext} />
     </>
   );
 }
